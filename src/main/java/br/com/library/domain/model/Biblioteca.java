@@ -1,4 +1,4 @@
-package domain.model;
+package br.com.library.domain.model;
 
 import java.util.List;
 

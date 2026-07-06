@@ -1,7 +1,7 @@
-package domain.model;
+package br.com.library.domain.model;
 
-import domain.enums.EStatusCredencial;
-import domain.enums.ETipoUsuario;
+
+import br.com.library.domain.enums.ETipoUsuario;
 
 public class Usuario {
 

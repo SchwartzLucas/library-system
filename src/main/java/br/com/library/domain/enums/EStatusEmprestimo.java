@@ -1,4 +1,4 @@
-package domain.enums;
+package br.com.library.domain.enums;
 
 public enum EStatusEmprestimo {
     EMPRESTADO(1, "Emprestado"),

@@ -1,6 +1,7 @@
-package domain.model;
+package br.com.library.domain.model;
 
-import domain.enums.EStatusEmprestimo;
+
+import br.com.library.domain.enums.EStatusEmprestimo;
 
 import java.time.LocalDate;
 
@@ -96,5 +97,9 @@ public class Livro {
     public String validarDados() {
 
         return null;
+    }
+
+    public void cadastrarLivros(){
+
     }
 }

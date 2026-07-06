@@ -1,6 +1,7 @@
-package domain.model;
+package br.com.library.domain.model;
 
-import domain.enums.EStatusCredencial;
+
+import br.com.library.domain.enums.EStatusCredencial;
 
 import java.util.Date;
 

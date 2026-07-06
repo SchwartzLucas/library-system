@@ -1,6 +1,6 @@
-package domain.model;
+package br.com.library.domain.model;
 
-import domain.enums.EStatusEmprestimo;
+import br.com.library.domain.enums.EStatusEmprestimo;
 
 import java.time.LocalDateTime;
 import java.util.Date;
