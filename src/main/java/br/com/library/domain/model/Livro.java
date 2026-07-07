@@ -2,19 +2,39 @@ package br.com.library.domain.model;
 
 
 import br.com.library.domain.enums.EStatusEmprestimo;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "livros")
 public class Livro {
 
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(nullable = false, length = 150)
     private String titulo;
+
+    @Column(nullable = false, length = 100)
     private String autor;
+
+    @Column(nullable = false)
     private LocalDate ano;
+
+    @Column(nullable = false, unique = true, length = 20)
     private String isbn;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private EStatusEmprestimo statusEmprestimo;
-    private int quantidadeTotal;
-    private int quantitadeTotalDisponivel;
+
+    @Column(nullable = false)
+    private Integer quantidadeTotal;
+
+    @Column(nullable = false)
+    private Integer quantidadeTotalDisponivel;
 
     public String getTitulo() {
         return titulo;
@@ -65,11 +85,11 @@ public class Livro {
     }
 
     public int getQuantitadeTotalDisponivel() {
-        return quantitadeTotalDisponivel;
+        return quantidadeTotalDisponivel;
     }
 
     public void setQuantitadeTotalDisponivel(int quantitadeTotalDisponivel) {
-        this.quantitadeTotalDisponivel = quantitadeTotalDisponivel;
+        this.quantidadeTotalDisponivel = quantitadeTotalDisponivel;
     }
 
     public int getId() {
@@ -90,7 +110,7 @@ public class Livro {
                 ", isbn='" + isbn + '\'' +
                 ", statusEmprestimo=" + statusEmprestimo +
                 ", quantidadeTotal=" + quantidadeTotal +
-                ", quantitadeTotalDisponivel=" + quantitadeTotalDisponivel +
+                ", quantitadeTotalDisponivel=" + quantidadeTotalDisponivel +
                 '}';
     }
 
@@ -99,7 +119,7 @@ public class Livro {
         return null;
     }
 
-    public void cadastrarLivros(){
+    public void cadastrarLivros() {
 
     }
 }

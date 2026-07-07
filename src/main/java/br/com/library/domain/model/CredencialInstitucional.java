@@ -2,14 +2,29 @@ package br.com.library.domain.model;
 
 
 import br.com.library.domain.enums.EStatusCredencial;
+import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
+@Entity
+@Table(name = "credenciais")
 public class CredencialInstitucional {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(nullable = false, unique = true)
     private String codigo;
-    private Date dataExpedicao;
-    private Date dateVencimento;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime dataExpedicao;
+
+    @Temporal(TemporalType.DATE)
+    private LocalDateTime dataVencimento;
+
+    @Enumerated(EnumType.STRING)
     private EStatusCredencial status;
 
     public String getCodigo() {
@@ -20,20 +35,20 @@ public class CredencialInstitucional {
         this.codigo = codigo;
     }
 
-    public Date getDataExpedicao() {
+    public LocalDateTime getDataExpedicao() {
         return dataExpedicao;
     }
 
-    public void setDataExpedicao(Date dataExpedicao) {
+    public void setDataExpedicao(LocalDateTime dataExpedicao) {
         this.dataExpedicao = dataExpedicao;
     }
 
-    public Date getDateVencimento() {
-        return dateVencimento;
+    public LocalDateTime getDateVencimento() {
+        return dataVencimento;
     }
 
-    public void setDateVencimento(Date dateVencimento) {
-        this.dateVencimento = dateVencimento;
+    public void setDateVencimento(LocalDateTime dateVencimento) {
+        this.dataVencimento = dateVencimento;
     }
 
     public EStatusCredencial getStatus() {
@@ -49,7 +64,7 @@ public class CredencialInstitucional {
         return "CredencialInstitucional{" +
                 "codigo='" + codigo + '\'' +
                 ", dataExpedicao=" + dataExpedicao +
-                ", dateVencimento=" + dateVencimento +
+                ", dateVencimento=" + dataVencimento +
                 ", status=" + status +
                 '}';
     }

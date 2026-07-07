@@ -2,14 +2,30 @@ package br.com.library.domain.model;
 
 
 import br.com.library.domain.enums.ETipoUsuario;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "usuarios")
 public class Usuario {
 
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(nullable = false, length = 120)
     private String nome;
+
+    @Column(nullable = false, unique = true, length = 11)
     private String cpf;
+
+    @Column(nullable = false, unique = true)
     private String email;
+
+    @Enumerated(EnumType.STRING)
     private ETipoUsuario tipoUsuario;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "credencial_id")
     private CredencialInstitucional credencialInstitucional;
 
 

@@ -1,18 +1,37 @@
 package br.com.library.domain.model;
 
 import br.com.library.domain.enums.EStatusEmprestimo;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 import java.util.Date;
 
+@Entity
+@Table(name = "emprestimos")
 public class Emprestimo {
 
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(nullable = false, unique = true)
     private String codigoTransacao;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
     private Usuario usuario;
+
+    @ManyToOne
+    @JoinColumn(name = "livro_id")
+    private Livro livro;
+
     private LocalDateTime dataEmprestimo;
-    private LocalDateTime datePrevistaDevolucao;
+
+    private LocalDateTime dataPrevistaDevolucao;
+
     private LocalDateTime dataDevolucaoRealizada;
+
+    @Enumerated(EnumType.STRING)
     private EStatusEmprestimo status;
 
     public int getId() {
@@ -48,11 +67,11 @@ public class Emprestimo {
     }
 
     public LocalDateTime getDatePrevistaDevolucao() {
-        return datePrevistaDevolucao;
+        return dataPrevistaDevolucao;
     }
 
     public void setDatePrevistaDevolucao(LocalDateTime datePrevistaDevolucao) {
-        this.datePrevistaDevolucao = datePrevistaDevolucao;
+        this.dataPrevistaDevolucao = datePrevistaDevolucao;
     }
 
     public LocalDateTime getDataDevolucaoRealizada() {
@@ -78,7 +97,7 @@ public class Emprestimo {
                 ", codigoTransacao='" + codigoTransacao + '\'' +
                 ", usuario=" + usuario +
                 ", dataEmprestimo=" + dataEmprestimo +
-                ", datePrevistaDevolucao=" + datePrevistaDevolucao +
+                ", datePrevistaDevolucao=" + dataPrevistaDevolucao +
                 ", dataDevolucaoRealizada=" + dataDevolucaoRealizada +
                 ", status=" + status +
                 '}';
