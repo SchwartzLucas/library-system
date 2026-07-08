@@ -1,16 +1,14 @@
 package br.com.library.domain.enums;
 
-public enum ETipoUsuario {
-
-
-    COMUM(1, "Comum"),
-    ESTUDANTE(2, "Estudante"),
-    PROFESSOR(3, "Professor");
+public enum EStatusEmprestimo {
+    EMPRESTADO(1, "Emprestado"),
+    DISPONIVEL(2, "Disponível"),
+    TOTALMENTE_EMPRESTADO(3, "Totalmente emprestado");
 
     private final int status;
     private final String descricao;
 
-    ETipoUsuario(int status, String descricao) {
+    EStatusEmprestimo(int status, String descricao) {
         this.status = status;
         this.descricao = descricao;
     }

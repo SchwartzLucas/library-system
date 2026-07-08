@@ -1,0 +1,35 @@
+src/main/java
+└── br/com/library
+├── App.java
+│
+├── config
+│     HibernateUtil.java
+│
+├── domain
+│     ├── model
+│     ├── enums
+│     └── exception
+│
+├── repository
+│     UsuarioRepository.java
+│     LivroRepository.java
+│     EmprestimoRepository.java
+│
+├── service
+│     UsuarioService.java
+│     LivroService.java
+│     EmprestimoService.java
+│
+├── controller
+│     UsuarioController.java
+│     LivroController.java
+│     EmprestimoController.java
+│
+├── dto
+│
+├── utils
+│     Utils.java
+│
+└── view
+MenuPrincipal.java
+Menus.java
